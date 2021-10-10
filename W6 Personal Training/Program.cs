@@ -11,6 +11,11 @@ namespace W6_Personal_Training
         string _firstName;  //creating string object
         string _lastName;
 
+        public Customer() : this("No First Name provided", "No Last Name Provided")
+        {
+
+        }
+        
         public Customer(string FirstName, string LastName)  //constructor --> to initialize class field
         {
             this._firstName = FirstName;
@@ -31,8 +36,11 @@ namespace W6_Personal_Training
     {
         static void Main(string[] args)
         {
-            Customer customer = new Customer("Akhilesh", "Dayal"); // creating instance (aka OBJECT) of the class
+            Customer customer = new Customer(); // creating instance (aka OBJECT) of the class
             customer.PrintFullName();
+
+            Customer customer1 = new Customer("akhi", "dayal");     //overloading constructor
+            customer1.PrintFullName();               
             Console.ReadLine();
         }
     }
