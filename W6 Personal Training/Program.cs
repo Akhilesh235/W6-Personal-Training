@@ -6,29 +6,19 @@ using System.Threading.Tasks;
 
 namespace W6_Personal_Training
 {
-    class Customer
+    class Circle
     {
-        string _firstName;  //creating string object
-        string _lastName;
+        float _PI = 3.141F;         //state of your class
+        int _Radius;
 
-        public Customer() : this("No First Name provided", "No Last Name Provided")
+        public Circle(int Radius)
         {
-
-        }
-        
-        public Customer(string FirstName, string LastName)  //constructor --> to initialize class field
-        {
-            this._firstName = FirstName;
-            this._lastName = LastName;
+            this._Radius = Radius;
         }
 
-        public void PrintFullName() //method 
+        public float CalculateArea()        // behaviour of your class
         {
-            Console.WriteLine("Full name : {0}" , this._firstName + " " + this._lastName);
-        }
-        ~Customer()
-        {
-            // clean up code goes here
+            return this._PI * this._Radius * this._Radius;
         }
     }
     
@@ -36,11 +26,9 @@ namespace W6_Personal_Training
     {
         static void Main(string[] args)
         {
-            Customer customer = new Customer(); // creating instance (aka OBJECT) of the class
-            customer.PrintFullName();
-
-            Customer customer1 = new Customer("akhi", "dayal");     //overloading constructor
-            customer1.PrintFullName();               
+            Circle C1 = new Circle(5);
+            float Area -C1.CalculateArea();
+            Console.WriteLine("Area = {0}" , Area);
             Console.ReadLine();
         }
     }
