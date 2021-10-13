@@ -8,17 +8,17 @@ namespace W6_Personal_Training
 {
     class Circle
     {
-        float _PI = 3.141F;         //state of your class
+        static float _PI = 3.141F;         //making pi static because the float value is constant
         int _Radius;
 
-        public Circle(int Radius)
+        public Circle(int Radius) // constructors
         {
             this._Radius = Radius;
         }
 
         public float CalculateArea()        // behaviour of your class
         {
-            return this._PI * this._Radius * this._Radius;
+            return Circle._PI * this._Radius * this._Radius;      // this keyword refers to an instance of a class. instance = non-static. Making a class member static means you cant use the this keyword
         }
     }
     
@@ -27,8 +27,12 @@ namespace W6_Personal_Training
         static void Main(string[] args)
         {
             Circle C1 = new Circle(5);
-            float Area -C1.CalculateArea();
-            Console.WriteLine("Area = {0}" , Area);
+            float Area1 = C1.CalculateArea();
+            Console.WriteLine("Area = {0}", Area1);
+
+            Circle C2 = new Circle(6);
+            float Area2 =C2.CalculateArea();
+            Console.WriteLine("Area = {0}", Area2);
             Console.ReadLine();
         }
     }
