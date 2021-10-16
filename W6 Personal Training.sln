@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Method Hiding", "Method Hid
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphism", "Polymorphism\Polymorphism.csproj", "{725A1C6B-08CB-46E1-927C-186F2AE92546}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Method Hide and Overide", "Method Hide and Overide\Method Hide and Overide.csproj", "{6BBA17B0-E930-4767-9F65-EF6F407BB499}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{725A1C6B-08CB-46E1-927C-186F2AE92546}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{725A1C6B-08CB-46E1-927C-186F2AE92546}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{725A1C6B-08CB-46E1-927C-186F2AE92546}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BBA17B0-E930-4767-9F65-EF6F407BB499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BBA17B0-E930-4767-9F65-EF6F407BB499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BBA17B0-E930-4767-9F65-EF6F407BB499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BBA17B0-E930-4767-9F65-EF6F407BB499}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
