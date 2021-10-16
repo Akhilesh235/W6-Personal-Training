@@ -11,6 +11,10 @@ namespace Properties
         private int _id;
         private string _Name;
         private int _PassMark =35;
+        public  string _city { get; set; }
+        private string _email { get; set; }
+
+
 
         public string Name
         {
