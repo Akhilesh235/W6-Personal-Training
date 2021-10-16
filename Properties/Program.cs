@@ -12,47 +12,51 @@ namespace Properties
         private string _Name;
         private int _PassMark =35;
 
-        public void SetName(string Name)
+        public string Name
         {
-            if(string.IsNullOrEmpty(Name))
+            set
             {
-                throw new ArgumentNullException("name cannot be null or empty");
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException("name cannot be null or empty");
+                }
+                this._Name = value;
             }
-            this._Name = Name;
-        }
 
-        public string GetName()
-        {
-            return string.IsNullOrEmpty(this._Name) ? "no name" : this._Name;   //same as if else method
-
-            //if (string.IsNullOrEmpty(_Name))
-            //{
-            //        return "no name";
-            //}
-            //else
-            //{
-            //        return this._Name;
-            //}
-        }
-
-        public void SetId(int ID)
-        {
-            if(ID <= 0)
+            get
             {
-                throw new Exception("invalid");
+                return string.IsNullOrEmpty(this._Name) ? "no name" : this._Name;
             }
-            this._id = ID;
         }
 
-        public int GetId()
+        public int ID
         {
-            return this._id;
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new Exception("invalid");
+                }
+                this._id = value;
+            }
+
+            get
+            {
+                return this._id;
+            }
+            
         }
 
-        public int GetPassMark()
-        {
-            return this._PassMark;
+        public int PassMark 
+        { 
+            get
+            {
+                return this._PassMark;
+            }
         }
+        
+           
+        
     }
     
     class Program
@@ -60,11 +64,13 @@ namespace Properties
         static void Main(string[] args)
         {
             Student C1 = new Student();
-            C1.SetId(101);
-            C1.SetName("Mark");
-            Console.WriteLine("Student ID = {0}", C1.GetId());
-            Console.WriteLine("Student Name is {0}", C1.GetName());
-            Console.WriteLine("Pass mark is {0}", C1.GetPassMark());
+            C1.ID = 101;    // you are setting the value here. 101 will be passed to set method 
+            Console.WriteLine("Student ID = {0}", C1.ID);       //you are getting the value of ID that has been set and passed
+
+            C1.Name = "Mark";    // set name
+            Console.WriteLine("Student Name is {0}", C1.Name); //get name
+
+            Console.WriteLine("Pass mark is {0}", C1.PassMark); // only getting the value
             Console.ReadLine();
         }
     }
