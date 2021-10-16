@@ -35,22 +35,55 @@ namespace W6_Personal_Training
             return Circle._PI * this._Radius * this._Radius;      // this keyword refers to an instance of a class. instance = non-static. Making a class member static means you cant use the this keyword
         }
     }
-    
+    public class Employee
+    {
+        public string firstname;
+        public string lastname;
+        public string email;
+
+        public void PrintFullName()
+        {
+            Console.WriteLine(firstname + lastname);
+        }
+    }
+
+    public class FullTimeEmployee : Employee //inheritence
+    {
+        public float YearlySalary;
+    }
+
+    public class PartTimeEmployee : Employee
+    {
+        public float HourlyRate;
+    }
     class Program
     {
         static void Main(string[] args)
         {
+            FullTimeEmployee FTE = new FullTimeEmployee();
+            FTE.firstname = "akhilesh ";
+            FTE.lastname = "dayal";
+            FTE.email = "akhilesh.dayal@whoohoo.com";
+            FTE.PrintFullName();
 
-            Console.WriteLine(Circle._PI);
-        //    Circle C1 = new Circle(5);      // creating an instance of the class
-        //    float Area1 = C1.CalculateArea();
-        //    //C1.Print();       since the Print method is a static method, you cant call it using the instance of a class.
-        //    //Circle.Print();     // you have to call the static method, through the name of the class
-        //    Console.WriteLine("Area = {0}", Area1);
+            PartTimeEmployee PTE = new PartTimeEmployee();
+            PTE.firstname = "askjhd";
+            PTE.lastname = "dayal";
+            PTE.email = "akhilesh.dayal@whoohoo.com";
+            PTE.HourlyRate
+            PTE.PrintFullName();
 
-        //    Circle C2 = new Circle(6);
-        //    float Area2 =C2.CalculateArea();
-        //    Console.WriteLine("Area = {0}", Area2);
+
+            //Console.WriteLine(Circle._PI);
+            //    Circle C1 = new Circle(5);      // creating an instance of the class
+            //    float Area1 = C1.CalculateArea();
+            //    //C1.Print();       since the Print method is a static method, you cant call it using the instance of a class.
+            //    //Circle.Print();     // you have to call the static method, through the name of the class
+            //    Console.WriteLine("Area = {0}", Area1);
+
+            //    Circle C2 = new Circle(6);
+            //    float Area2 =C2.CalculateArea();
+            //    Console.WriteLine("Area = {0}", Area2);
             Console.ReadLine();
         }
     }
