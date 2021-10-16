@@ -10,15 +10,10 @@ namespace Method_Overloading
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Input your first Number : ");
-            int i = int.Parse(Console.ReadLine());
-            Console.WriteLine("Input your Second Number : ");
-            int j = int.Parse(Console.ReadLine());
-            Console.WriteLine("Input your Third Number : ");
-            int k = int.Parse(Console.ReadLine());
-
-            Add(i, j);
-            Add(i, j, k);
+            Add(5, 10);
+            Add(5, 10,100);
+            Add(5, 7.2F);
+            
             Console.ReadLine();
         }
 
@@ -28,10 +23,24 @@ namespace Method_Overloading
 
         }
 
-        public static void Add(int FN, int SN, int TN)
+        public static void Add(int FN, int SN, int TN) // method can be overloaded on number of parameters
         {
             Console.WriteLine("Sum of three numbers = {0}", FN + SN+TN);
 
         }
+
+        public static void Add(int FN, float SN)    // method can be overloaded on type of parameters
+        {
+            Console.WriteLine("Sum of int and float numbers  = {0}", FN + SN);
+
+        }
+
+        public static void Add(int FN, int SN, out int Sum) // method can be overloaded on kind of parameters --> int is a value parameter // out is an output parameter
+        {
+            Console.WriteLine("This is overloading through different kind of parameter", Sum = FN + SN);
+
+        }
+
+
     }
 }
