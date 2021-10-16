@@ -35,6 +35,41 @@ namespace W6_Personal_Training
             return Circle._PI * this._Radius * this._Radius;      // this keyword refers to an instance of a class. instance = non-static. Making a class member static means you cant use the this keyword
         }
     }
+
+    /*
+     Inheritence Syntax
+    public class ParentClass
+    {
+        Parent Class Implementation
+    }
+
+    public class DerivedClass : ParentClass
+    {
+        Derived Class Implementation
+    } 
+     */
+
+    public class ChildClass:ParentClass
+    {
+        public ChildClass() : base("Derived Class controlling Parent Class")
+        {
+            Console.WriteLine("Child class constructor called next");
+        }
+    }
+    
+    public class ParentClass
+    {
+        public ParentClass()
+        {
+            Console.WriteLine("Parent Class Constructor called first ");
+        }
+
+        public ParentClass(string Message)
+        {
+            Console.WriteLine(Message);
+        }
+    }
+
     public class Employee
     {
         public string firstname;
@@ -60,18 +95,20 @@ namespace W6_Personal_Training
     {
         static void Main(string[] args)
         {
-            FullTimeEmployee FTE = new FullTimeEmployee();
-            FTE.firstname = "akhilesh ";
-            FTE.lastname = "dayal";
-            FTE.email = "akhilesh.dayal@whoohoo.com";
-            FTE.PrintFullName();
+            ChildClass CC = new ChildClass();   // even though u called the childclass, the parent class constructor is called first then the child class constructor is called
+            
+            //FullTimeEmployee FTE = new FullTimeEmployee();
+            //FTE.firstname = "akhilesh ";
+            //FTE.lastname = "dayal";
+            //FTE.email = "akhilesh.dayal@whoohoo.com";
+            //FTE.PrintFullName();
 
-            PartTimeEmployee PTE = new PartTimeEmployee();
-            PTE.firstname = "askjhd";
-            PTE.lastname = "dayal";
-            PTE.email = "akhilesh.dayal@whoohoo.com";
-            PTE.HourlyRate
-            PTE.PrintFullName();
+            //PartTimeEmployee PTE = new PartTimeEmployee();
+            //PTE.firstname = "askjhd";
+            //PTE.lastname = "dayal";
+            //PTE.email = "akhilesh.dayal@whoohoo.com";
+            //PTE.HourlyRate = 100;
+            //PTE.PrintFullName();
 
 
             //Console.WriteLine(Circle._PI);
