@@ -6,44 +6,29 @@ using System.Threading.Tasks;
 
 namespace Interfaces
 {
-    interface ICustomer1
+    interface I1
     {
-        void Print1(); // interface only allows declaration     
-        //{
-        //    Console.WriteLine("Hello"); // interface does not allow implementation
-        //}
+        void InterfaceMethod();
     }
 
-    interface ICustomer2 : ICustomer1
+    interface I2    // both Interfaces have the same declaration
     {
-        void Print2();
+        void InterfaceMethod();
     }
 
-    class Customer: ICustomer2   // class can inherit from multiple Interfaces at the same time
+
+
+    class Program : I1,I2
     {
-        public void Print2()
+        public void InterfaceMethod()   //both interfaces are inherited by 1 class, and it is unable to know which one to call
         {
-            Console.WriteLine("Print2"); ;
+            Console.WriteLine("I1 Interface method");
         }
-
-        public void Print1()
-        {
-            Console.WriteLine("Print1");
-        }
-
-    }
-
-    class Program
-    {
         static void Main(string[] args)
         {
-            Customer C1 = new Customer();
-            C1.Print1();
-            C1.Print2();
-
-            ICustomer1 Cust = new Customer();   // creating a interface reference variable that is pointed to a desired class object
-            Cust.Print1();
-         
+            Program p = new Program();
+            ((I1)p).InterfaceMethod();      // use type casting to invoke the I1 method
+            ((I2)p).InterfaceMethod();      // you still wont know which Interface is being called --> See next git change
             Console.ReadLine();
         }
     }
