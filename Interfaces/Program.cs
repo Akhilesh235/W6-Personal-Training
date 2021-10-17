@@ -20,7 +20,7 @@ namespace Interfaces
 
     class Program : I1, I2
     {
-        void I1.InterfaceMethod()   // Explicitly state which interface its calling from
+        public void InterfaceMethod()   
         {
             Console.WriteLine("I1 Interface method");
         }
@@ -32,14 +32,9 @@ namespace Interfaces
         static void Main(string[] args)
         {
             Program p = new Program();
-            ((I1)p).InterfaceMethod();      // use type casting to invoke the I1 method
-            ((I2)p).InterfaceMethod();      // you still wont know which Interface is being called --> See next git change
-            
-            I1 i1 = new Program();      // another way
-            I2 i2 = new Program();
-            i1.InterfaceMethod();
-            i2.InterfaceMethod();
-            
+            p.InterfaceMethod();
+            ((I2)P).InterfaceMethod();
+           
             Console.ReadLine();
         }
     }
