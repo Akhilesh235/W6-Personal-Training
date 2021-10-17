@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Delegates
 {
-    public delegate int SampleDelegate();
+    public delegate void SampleDelegate(out int Integer);
     class Program
     {
         static void Main(string[] args)
@@ -15,21 +15,22 @@ namespace Delegates
             SampleDelegate del = new SampleDelegate(SampleMethodOne);
             del += SampleMethodTwo;    // multi cast delegates
 
-            int DelegateReturnedValue = del();
+            int DelegateOutputParameterValue = -1;
+            del(out DelegateOutputParameterValue);
            
 
-            Console.WriteLine(DelegateReturnedValue);
+            Console.WriteLine(DelegateOutputParameterValue);
             Console.ReadLine();
         }
 
-        public static int  SampleMethodOne()
+        public static void  SampleMethodOne(out int Number)
         {
-            return 1;
+            Number = 1;
         }
 
-        public static int SampleMethodTwo()
+        public static void SampleMethodTwo(out int Number)
         {
-            return 2;
+            Number = 2;
         }
 
     }
