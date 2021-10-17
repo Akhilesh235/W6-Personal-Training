@@ -6,50 +6,41 @@ using System.Threading.Tasks;
 
 namespace Interfaces
 {
-    interface ICustomer
+    interface ICustomer1
     {
-        void Print(); // interface only allows declaration     
+        void Print1(); // interface only allows declaration     
         //{
         //    Console.WriteLine("Hello"); // interface does not allow implementation
         //}
     }
 
-    interface I2
+    interface ICustomer2 : ICustomer1
     {
-        void I2Method();
+        void Print2();
     }
 
-    class Class2 : ICustomer, I2    // class can inherit from multiple Interfaces at the same time
+    class Customer: ICustomer2   // class can inherit from multiple Interfaces at the same time
     {
-        public void I2Method()
+        public void Print2()
         {
-            Console.WriteLine("I2 Method Printed from Class 2"); ;
+            Console.WriteLine("Print2"); ;
         }
 
-        public void Print()
+        public void Print1()
         {
-            Console.WriteLine("Interface Printed from Class 2");
+            Console.WriteLine("Print1");
         }
+
     }
 
-    class Customer : ICustomer
-    {
-        public void Print()     //Signature of the Declaration should be the same as the Interface
-        {
-            Console.WriteLine("Interface Print Method");    //Implementation for the Interface
-        }
-    }
-    
     class Program
     {
         static void Main(string[] args)
         {
             Customer C1 = new Customer();
-            C1.Print();
-
-            Class2 C2 = new Class2();
-            C2.Print();
-            C2.I2Method();
+            C1.Print1();
+            C1.Print2();
+         
             Console.ReadLine();
         }
     }
