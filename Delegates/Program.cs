@@ -16,24 +16,14 @@ namespace Delegates
             empList.Add(new Employee() { ID = 101, Name = "John", Salary = 6000, Experience = 6 });
             empList.Add(new Employee() { ID = 101, Name = "Todd", Salary = 3000, Experience = 3 });
 
-            Ispromotable ispromotable = new Ispromotable(Promote);
             
             
-            Employee.PromoteEmployee(empList, ispromotable);
+            
+            Employee.PromoteEmployee(empList, emp => emp.Experience >= 5);
             Console.ReadLine();
         }
 
-        public static bool Promote (Employee emp)
-        {
-            if(emp.Experience >=5)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        
     }
 
     delegate bool Ispromotable(Employee empl);
