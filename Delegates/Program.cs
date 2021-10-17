@@ -16,14 +16,28 @@ namespace Delegates
             empList.Add(new Employee() { ID = 101, Name = "John", Salary = 6000, Experience = 6 });
             empList.Add(new Employee() { ID = 101, Name = "Todd", Salary = 3000, Experience = 3 });
 
-
-            Employee.PromoteEmployee(empList);
+            Ispromotable ispromotable = new Ispromotable(Promote);
+            
+            
+            Employee.PromoteEmployee(empList, ispromotable);
             Console.ReadLine();
+        }
+
+        public static bool Promote (Employee emp)
+        {
+            if(emp.Experience >=5)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 
-       
-    }
+    delegate bool Ispromotable(Employee empl);
+
     class Employee
     {
         public int ID { get; set; }
@@ -31,13 +45,14 @@ namespace Delegates
         public int Salary { get; set; }
         public int Experience { get; set; }
 
-        public static void PromoteEmployee(List<Employee> employeeList)
+        public static void PromoteEmployee(List<Employee> employeeList, Ispromotable IsEligibleToPromote)
         {
             foreach(Employee employee in employeeList)
             {
-                if(employee.Experience >= 5)
+                if (IsEligibleToPromote(employee))
                 {
                     Console.WriteLine(employee.Name + " promoted");
+                }
                     
             }
         }
