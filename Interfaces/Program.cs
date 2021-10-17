@@ -40,6 +40,9 @@ namespace Interfaces
             Customer C1 = new Customer();
             C1.Print1();
             C1.Print2();
+
+            ICustomer1 Cust = new Customer();   // creating a interface reference variable that is pointed to a desired class object
+            Cust.Print1();
          
             Console.ReadLine();
         }
