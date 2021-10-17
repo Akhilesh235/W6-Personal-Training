@@ -6,23 +6,53 @@ using System.Threading.Tasks;
 
 namespace Abstract_Classes
 {
-    public abstract class Customer
+    interface IA
     {
-        public abstract void Print();   // only declaration.. no implementation for abstract methods
-
-        
+        void AMethod();
     }
-    
-    class Program : Customer
+
+    class A : IA
     {
-        public override void Print()
+        public void AMethod()
         {
-            Console.WriteLine("Print method");
+            Console.WriteLine("A");
         }
+    }
+
+    interface IB
+    {
+        void BMethod();
+    }
+
+    class B : IB
+    {
+        public void BMethod()
+        {
+            Console.WriteLine("B");
+        }
+    }
+
+    class AB : IA, IB
+    {
+        A a = new A();
+        B b = new B();
+        public void AMethod()
+        {
+            a.AMethod();
+        }
+        public void BMethod()
+        {
+            b.BMethod();
+        }
+    }
+    class Program
+    {
         static void Main(string[] args)
         {
-            Customer C = new Program();
-            C.Print();
+            AB aB = new AB();
+            aB.AMethod();
+            aB.BMethod();
+
             Console.ReadLine();
         }
     }
