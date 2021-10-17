@@ -12,14 +12,10 @@ namespace Delegates
         static void Main(string[] args)
         {
 
-            SampleDelegate del1, del2, del3, del4;
+            SampleDelegate del1 = new SampleDelegate(SampleMethodOne);
+            del1 += SampleMethodTwo;    // multi cast delegates
+            del1 += SampleMethodThree;
 
-            del1 = new SampleDelegate(SampleMethodOne);
-            del2 = new SampleDelegate(SampleMethodTwo);
-            del3 = new SampleDelegate(SampleMethodThree);
-
-            del4 = del1 + del2 + del3;
-            del4(); // del 4 is the multi cast delegate
             Console.ReadLine();
         }
 
