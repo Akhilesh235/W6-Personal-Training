@@ -6,32 +6,30 @@ using System.Threading.Tasks;
 
 namespace Delegates
 {
-    public delegate void SampleDelegate();
+    public delegate int SampleDelegate();
     class Program
     {
         static void Main(string[] args)
         {
 
-            SampleDelegate del1 = new SampleDelegate(SampleMethodOne);
-            del1 += SampleMethodTwo;    // multi cast delegates
-            del1 += SampleMethodThree;
+            SampleDelegate del = new SampleDelegate(SampleMethodOne);
+            del += SampleMethodTwo;    // multi cast delegates
 
+            int DelegateReturnedValue = del();
+           
+
+            Console.WriteLine(DelegateReturnedValue);
             Console.ReadLine();
         }
 
-        public static void SampleMethodOne()
+        public static int  SampleMethodOne()
         {
-            Console.WriteLine("Sample Method 1 Invoked");
+            return 1;
         }
 
-        public static void SampleMethodTwo()
+        public static int SampleMethodTwo()
         {
-            Console.WriteLine("Sample Method 2 Invoked");
-        }
-
-        public static void SampleMethodThree()
-        {
-            Console.WriteLine("Sample Method 3 Invoked");
+            return 2;
         }
 
     }
