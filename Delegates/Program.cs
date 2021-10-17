@@ -6,21 +6,41 @@ using System.Threading.Tasks;
 
 namespace Delegates
 {
-    public delegate void HelloFunctionDelegate(string Message);     // 1) Create delegate
     class Program
     {
         static void Main(string[] args)
         {
-            // A delegate is a type safe function pointer
+            List<Employee> empList = new List<Employee>();
+            empList.Add(new Employee() { ID = 101, Name = "Mary", Salary = 5000, Experience = 5 });
+            empList.Add(new Employee() { ID = 101, Name = "Mike", Salary = 4000, Experience = 4 });
+            empList.Add(new Employee() { ID = 101, Name = "John", Salary = 6000, Experience = 6 });
+            empList.Add(new Employee() { ID = 101, Name = "Todd", Salary = 3000, Experience = 3 });
 
-            HelloFunctionDelegate del = new HelloFunctionDelegate(Hello); // 2) Create instance of delegate and in the constructor(paranthesis) call the method
-            del("Hello from Delegate"); // 3) Invoke the delegate so that it invokes the method
-        }
 
-        public static void Hello(string strMessage)
-        {
-            Console.WriteLine(strMessage);
+            Employee.PromoteEmployee(empList);
             Console.ReadLine();
         }
+    }
+
+       
+    }
+    class Employee
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int Salary { get; set; }
+        public int Experience { get; set; }
+
+        public static void PromoteEmployee(List<Employee> employeeList)
+        {
+            foreach(Employee employee in employeeList)
+            {
+                if(employee.Experience >= 5)
+                {
+                    Console.WriteLine(employee.Name + " promoted");
+                    
+            }
+        }
+
     }
 }
